@@ -1,0 +1,98 @@
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+body #app {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-box {
+  align-self: stretch;
+  background-color: inherit;
+  border: 1px solid #ff9999;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  color: #d8000c;
+}
+
+.error-box ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+.success {
+  color: green;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: #d8000c;
+  margin-top: 10px;
+}
+
+.auth-container {
+  gap: 30px;
+  width: 35%;
+  padding: 30px;
+  display: flex;
+  border-radius: 12px;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.auth-container h2 {margin: 0;}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.auth-form input {
+  align-self: stretch;
+  border: 1px #cccccc solid;
+  border-radius: 8px;
+  padding: 15px 18px;
+  color: #000000;
+}
+
+.auth-form button {
+  all: unset;
+  width: 40%;
+  text-align: center;
+  color: #FFFFFF;
+  cursor: pointer;
+  padding: 12px 20px;
+  border-radius: 8px;
+  background-color: #3aa7df;
+}
+
+button:disabled {
+  background-color: #8db6e6;
+  color: #cccccc;
+}
+
+.auth-link {
+  color: #000000;
+  font-size: 14px;
+}

@@ -1,0 +1,36 @@
+services:
+  lumen:
+    build: ./lumen-apis
+    ports:
+      - "8000:80"
+    depends_on:
+      - mysql
+      - redis
+
+  node-backend:
+    build: ./node-backend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - lumen
+      - redis
+
+  vue-frontend:
+    build: ./vue-frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - node-backend
+
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: lumenfirst
+    ports:
+      - "3306:3306"
