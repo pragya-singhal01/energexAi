@@ -1,9 +1,16 @@
+:root {
+  --base-color: #3aa7df;
+  --disabled-color: #8db6e6;
+  --danger: #d8000c;
+  --body: #f9f9f9;
+}
+
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
-  background-color: #f9f9f9;
+  background-color: var(--body);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -16,6 +23,11 @@ body #app {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  flex: 1;
+}
+
+#app:has(.app-header) {
+  justify-content: flex-start;
 }
 
 .error-box {
@@ -25,7 +37,7 @@ body #app {
   padding: 10px;
   margin-bottom: 12px;
   border-radius: 6px;
-  color: #d8000c;
+  color: var(--danger);
 }
 
 .error-box ul {
@@ -43,7 +55,7 @@ body #app {
 }
 
 .error {
-  color: #d8000c;
+  color: var(--danger);
   margin-top: 10px;
 }
 
@@ -60,7 +72,7 @@ body #app {
 
 .auth-container h2 {margin: 0;}
 
-.auth-form {
+.auth-form, .post-form {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -68,7 +80,7 @@ body #app {
   gap: 20px;
 }
 
-.auth-form input {
+.auth-form input, .post-form input, .post-form textarea {
   align-self: stretch;
   border: 1px #cccccc solid;
   border-radius: 8px;
@@ -84,15 +96,139 @@ body #app {
   cursor: pointer;
   padding: 12px 20px;
   border-radius: 8px;
-  background-color: #3aa7df;
+  background-color: var(--base-color);
 }
 
 button:disabled {
-  background-color: #8db6e6;
+  background-color: var(--disabled-color);
   color: #cccccc;
 }
 
 .auth-link {
   color: #000000;
   font-size: 14px;
+}
+
+.app-header {
+  align-self: stretch;
+  position: sticky;
+  top: 0;
+  background-color: var(--base-color);
+  padding: 20px 50px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-items {
+  align-self: stretch;
+}
+
+.nav-button {
+  all: unset;
+}
+
+.nav-item, .nav-button {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
+.nav-logout {
+  background: none;
+  border: none;
+  color:#FFFFFF;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.posts-container {
+  align-self: stretch;
+  padding: 30px;
+}
+
+.post-detail {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+/** BASE MODAL STYLES */
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.modal-content {
+  background: white;
+  border-radius: 8px;
+  width: 500px;
+  max-width: 90%;
+  overflow: hidden;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 25px;
+  cursor: pointer;
+}
+.modal-body {
+  padding: 10px;
+}
+.modal-footer {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: center;
+  border-top: 1px solid #eee;
+}
+
+.modal-footer button {
+  all: unset;
+  padding: 10px 25px;
+  border: #cccccc 1px solid;
+  border-radius: 8px;
+}
+
+.modal-footer .save-post {
+  background-color: var(--base-color);
+  color: #FFFFFF;
+}
+
+.post-form {
+  padding: 15px;
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  align-self: stretch;
 }

@@ -7,12 +7,12 @@ import PostDetailView from '../views/PostDetailView.vue';
 import CreatePostView from '../views/CreatePostView.vue';
 
 const routes: RouteRecordRaw[] = [
-  { path: '/login', component: LoginView },
-  { path: '/register', component: RegisterView },
-  { path: '/', component: AllPostsView, meta: { requiresAuth: true } },
-  { path: '/my-posts', component: UserPostsView, meta: { requiresAuth: true } },
-  { path: '/posts/:id', component: PostDetailView, meta: { requiresAuth: true } },
-  { path: '/create', component: CreatePostView, meta: { requiresAuth: true } },
+  { path: '/login', component: LoginView, meta: {showHeader: false} },
+  { path: '/register', component: RegisterView, meta: {showHeader: false}  },
+  { path: '/', component: AllPostsView, meta: { requiresAuth: true, showHeader: true } },
+  { path: '/my-posts', component: UserPostsView, meta: { requiresAuth: true, showHeader: true } },
+  { path: '/posts/:id', component: PostDetailView, meta: { requiresAuth: true, showHeader: true } },
+  { path: '/create', component: CreatePostView, meta: { requiresAuth: true, showHeader: true } },
   {
   path: '/:pathMatch(.*)*',
   redirect: (to) => {

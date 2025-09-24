@@ -19,7 +19,7 @@ const handleLogin = async () => {
       error.value = err.response.data.error;
       console.error('Server error:', err.response.data.error);
     } else {
-      error.value = "Registeration Failed! Please try again later.";
+      error.value = "Login Failed. Please try again later.";
       console.error('Unexpected error:', err)
     }
   }
